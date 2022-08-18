@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: "create debug build"
-          command: ./gradlew clean artifactoryPublish
+          command: ${publish_command}
 
 
 #version: 2.1
