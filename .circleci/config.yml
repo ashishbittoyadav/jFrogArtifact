@@ -20,4 +20,9 @@ jobs:
       - run:
           name: "publish aar to jFrog"
           command: ${publish_command}
+workflows:
+  aws-cli:
+    jobs:
+      - aws-cli-example:
+          context: aws
 
