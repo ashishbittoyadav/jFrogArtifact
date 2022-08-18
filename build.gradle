@@ -31,7 +31,7 @@ project('testingModule') {
                 // from components.java
                 groupId = group
                 artifactId = project.getName()
-                version = "1.0.0.beta9"
+                version = "1.0.0.beta10"
                 // Tell maven to prepare the generated "*.aar" file for publishing
                 artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
             }
