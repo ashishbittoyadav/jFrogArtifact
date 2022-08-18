@@ -1,0 +1,26 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://sunfox.jfrog.io/artifactory/test_remote'
+            credentials{
+                username('user_b')
+                password('Qwerty123!@#')
+//                password('jFrogP@ss123456')
+            }
+        }
+    }
+}
+rootProject.name = "JFrogArtifact"
+include ':app'
+include ':testingModule'
+include ':androidModule'
