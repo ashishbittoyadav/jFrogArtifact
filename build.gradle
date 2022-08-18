@@ -31,7 +31,7 @@ project('testingModule') {
                 // from components.java
                 groupId = group
                 artifactId = project.getName()
-                version = "1.0.0.beta11"
+                version = "1.0.0.beta12"
                 // Tell maven to prepare the generated "*.aar" file for publishing
                 artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
             }
@@ -46,12 +46,12 @@ artifactory {
     clientConfig.setIncludeEnvVars(true)
     clientConfig.info.addEnvironmentProperty('test.adding.dynVar',new Date().toString())
 //    contextUrl = 'https://sunfox.jfrog.io/artifactory'
-    contextUrl = jFrogRepoUrl
+    contextUrl = System.getenv('JFrogUrl')
     publish {
         repository {
-            repoKey = jFrogRepoKey // The Artifactory repository key to publish to
-            username = jFrogUserName // The publisher user name
-            password = jFrogPassword // The publisher password
+            repoKey = System.getenv('repo_key') // The Artifactory repository key to publish to
+            username = System.getenv('user_name') // The publisher user name
+            password = System.getenv('password') // The publisher password
             // This is an optional section for configuring Ivy publication (when publishIvy = true).
 
 //            ivy {
