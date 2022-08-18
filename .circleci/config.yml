@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  gradle: circleci/gradle@3.0.0
 jobs:
   build:
     docker:
@@ -7,5 +9,5 @@ jobs:
       - run:
           name: The First Step
           command: |
-            /Users/sunfox2/JFrogArtifact/.gradlew clean
+            gradlew clean
             echo 'This is the delivery pipeline'
