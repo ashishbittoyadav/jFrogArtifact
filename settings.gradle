@@ -5,7 +5,24 @@ pluginManagement {
         mavenCentral()
     }
 }
+
 dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    def codeArtifactToken = "aws codeartifact get-authorization-token --domain sunfox-in --domain-owner 040487387791 --query authorizationToken --output text".execute().text
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url ('https://jitpack.io')
+        }
+        maven {
+            url 'https://sunfox-in-040487387791.d.codeartifact.ap-south-1.amazonaws.com/maven/spandan-ecg-artifact-repository/'
+            credentials {
+                username "build_artifacts_user"
+                password codeArtifactToken
+            }
+        }
+    }
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
