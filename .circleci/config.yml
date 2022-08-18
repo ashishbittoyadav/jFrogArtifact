@@ -1,6 +1,14 @@
 version: 2.1
 orbs:
   gradle: circleci/gradle@3.0.0
+  machine:
+    environment:
+      ANDROID_HOME: /usr/local/android-sdk-linux
+
+  dependencies:
+    override:
+      - chmod +x gradlew
+      - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
 jobs:
   build:
     docker:
